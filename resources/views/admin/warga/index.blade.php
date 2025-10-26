@@ -1,8 +1,7 @@
-@extends('admin.admin')
+@extends('layouts.admin.app')
 @section('page-title', 'Daftar Warga')
 
 @section('content')
-<!-- Halaman daftar warga -->
 <div class="container-fluid py-4">
   <div class="row">
     <div class="col-12">
@@ -19,9 +18,8 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>#</th>
                   <th>Warga ID</th>
-                  <th>No KTP</th>
+                  <th>NIK</th>
                   <th>Nama</th>
                   <th>Telp</th>
                   <th>Aksi</th>
@@ -30,13 +28,12 @@
               <tbody>
                 @foreach($wargas as $warga)
                 <tr>
-                  <td>{{ $loop->iteration + ($wargas->currentPage()-1)*$wargas->perPage() }}</td>
                   <td>{{ $warga->warga_id }}</td>
                   <td>{{ $warga->no_ktp }}</td>
                   <td>{{ $warga->nama }}</td>
                   <td>{{ $warga->telp }}</td>
                   <td>
-                    <a href="{{ route('warga.show', $warga) }}" class="btn btn-sm btn-info">Lihat</a>
+                    {{-- Tombol Lihat dihapus --}}
                     <a href="{{ route('warga.edit', $warga) }}" class="btn btn-sm btn-warning">Edit</a>
                     <form action="{{ route('warga.destroy', $warga) }}" method="POST" style="display:inline-block" onsubmit="return confirm('Hapus data?')">
                       @csrf

@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WargaController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\KategoriBeritaController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,3 +25,9 @@ Route::resource('warga', WargaController::class);
 
 // Resource routes untuk CRUD Profil
 Route::resource('profil', ProfilController::class);
+
+// Resource routes untuk CRUD Kategori Berita
+Route::resource('kategori-berita', KategoriBeritaController::class);
+
+// Resource routes untuk CRUD User
+Route::resource('user', UserController::class);

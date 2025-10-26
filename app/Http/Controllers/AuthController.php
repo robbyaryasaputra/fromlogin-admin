@@ -2,6 +2,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -14,21 +17,29 @@ class AuthController extends Controller
     // Proses login
     public function login(Request $request)
     {
+        // Validasi input. Form saat ini menggunakan field 'username' — kita anggap sebagai email.
         $request->validate([
-            'username' => 'required',
-            'password' => [
-                'required',
-                'min:3',
-                'regex:/[A-Z]/'
-            ],
+            'username' => 'required|email',
+            'password' => 'required|string',
         ], [
-            'username.required' => 'Username wajib diisi.',
+            'username.required' => 'Email wajib diisi.',
+            'username.email' => 'Format email tidak valid.',
             'password.required' => 'Password wajib diisi.',
-            'password.min' => 'Password minimal harus 3 karakter.',
-            'password.regex' => 'Password harus mengandung setidaknya satu huruf kapital.',
         ]);
 
-    // Jika validasi lolos, tampilkan halaman login-success
-    return view('login-success', ['username' => $request->username]);
+        $credentials = [
+            'email' => $request->username,
+            'password' => $request->password,
+        ];
+
+        // Coba authenticate menggunakan guard default
+        if (Auth::attempt($credentials)) {
+            // Regenerate session untuk mencegah session fixation
+            $request->session()->regenerate();
+            return redirect()->intended(route('dashboard.index'));
+        }
+
+        // Jika gagal, kembali ke form login dengan pesan error
+        return back()->withErrors(['credentials' => 'Email atau password salah'])->withInput();
     }
 }

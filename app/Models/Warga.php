@@ -12,9 +12,13 @@ class Warga extends Model
     // Nama tabel (laravel default: wargas), set explicit jika ingin
     protected $table = 'wargas';
 
-    // Fillable properties untuk mass assignment
+    // Primary key sesuai migration
+    protected $primaryKey = 'warga_id';
+    public $incrementing = true;
+    protected $keyType = 'int';
+
+    // Fillable properties untuk mass assignment (exclude primary key dan kolom yang tidak ada di migration)
     protected $fillable = [
-        'warga_id',
         'no_ktp',
         'nama',
         'jenis_kelamin',
@@ -22,6 +26,5 @@ class Warga extends Model
         'pekerjaan',
         'telp',
         'email',
-        'alamat',
     ];
 }
