@@ -15,9 +15,9 @@ class WargaController extends Controller
     {
         // Mengambil data warga, diurutkan dari yang terbaru, dan paginasi 10 per halaman
         $wargas = Warga::orderBy('created_at', 'desc')->paginate(10);
-        
+
         // Sesuaikan path view jika berbeda, misal: 'admin.warga.index'
-        return view('admin.warga.index', compact('wargas'));
+        return view('pages.warga.index', compact('wargas'));
     }
 
     /**
@@ -27,7 +27,7 @@ class WargaController extends Controller
     public function create()
     {
         // Sesuaikan path view jika berbeda, misal: 'admin.warga.create'
-        return view('admin.warga.create');
+        return view('pages.warga.create');
     }
 
     /**
@@ -43,7 +43,7 @@ class WargaController extends Controller
             // 'required' berarti WAJIB diisi
             'no_ktp'        => 'required|string|max:50|unique:wargas,no_ktp',
             'nama'          => 'required|string|max:255',
-            
+
             // 'nullable' berarti BOLEH kosong
             'jenis_kelamin' => 'nullable|string|in:Laki-laki,Perempuan', // Pastikan nilai sesuai <option>
             'agama'         => 'nullable|string|max:50',
@@ -67,7 +67,7 @@ class WargaController extends Controller
     public function edit(Warga $warga)
     {
         // Sesuaikan path view jika berbeda, misal: 'admin.warga.edit'
-        return view('admin.warga.edit', compact('warga'));
+        return view('pages.warga.edit', compact('warga'));
     }
 
     /**
@@ -84,7 +84,7 @@ class WargaController extends Controller
             // Rule 'unique' di-update agar mengabaikan data saat ini ($warga->warga_id)
             'no_ktp'        => 'required|string|max:50|unique:wargas,no_ktp,' . $warga->warga_id . ',warga_id',
             'nama'          => 'required|string|max:255',
-            
+
             // 'nullable' berarti BOLEH kosong
             'jenis_kelamin' => 'nullable|string|in:Laki-laki,Perempuan',
             'agama'         => 'nullable|string|max:50',

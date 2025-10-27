@@ -9,7 +9,9 @@
       <div class="card mb-4">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h6 class="mb-0">Daftar User</h6>
-          <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">Tambah User</a>
+          <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">
+            <i class="material-icons opacity-10 me-1">person_add</i> Tambah User
+          </a>
         </div>
         <div class="card-body">
           @if(session('success'))<div class="alert alert-success">{{ session('success') }}</div>@endif
@@ -31,10 +33,14 @@
                   <td>{{ $item->email }}</td>
                   <td class="text-center">
                     {{-- Tombol Lihat dihapus --}}
-                    <a href="{{ route('user.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ route('user.edit', $item->id) }}" class="btn btn-sm btn-warning">
+                      <i class="material-icons opacity-10">edit</i> Edit
+                    </a>
                     <form action="{{ route('user.destroy', $item->id) }}" method="POST" style="display:inline" onsubmit="return confirm('Hapus user ini?')">
                       @csrf @method('DELETE')
-                      <button class="btn btn-sm btn-danger">Hapus</button>
+                      <button class="btn btn-sm btn-danger">
+                        <i class="material-icons opacity-10">delete</i> Hapus
+                      </button>
                     </form>
                   </td>
                 </tr>

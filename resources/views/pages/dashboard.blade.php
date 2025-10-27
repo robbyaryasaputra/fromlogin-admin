@@ -19,7 +19,7 @@
               <p class="text-pink-600 text-lg" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
                 Selamat datang kembali. Semua sistem telah siap untuk mengelola dan mempublikasikan konten Anda.
               </p>
-              
+
             </div>
             <div class="col-md-4 col-lg-5 d-none d-md-block text-center">
               <img src="{{ asset('assets-admin/img/illustrations/rocket-white.png') }}" alt="rocket" style="width: 100%; max-width: 150px; margin-top: -20px;">
@@ -67,11 +67,11 @@
               </div>
             </div>
             <div class="col-4 text-end">
-              
+
               <div class="icon icon-shape bg-gradient-dark shadow text-center border-radius-md">
                 <i class="material-icons-round text-lg opacity-10">account_balance</i>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -91,11 +91,11 @@
               </div>
             </div>
             <div class="col-4 text-end">
-              
+
               <div class="icon icon-shape bg-gradient-danger shadow text-center border-radius-md">
                 <i class="material-icons-round text-lg opacity-10">article</i>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -115,11 +115,11 @@
               </div>
             </div>
             <div class="col-4 text-end">
-              
+
               <div class="icon icon-shape bg-gradient-secondary shadow text-center border-radius-md">
                 <i class="material-icons-round text-lg opacity-10">person</i>
               </div>
-              
+
             </div>
           </div>
         </div>

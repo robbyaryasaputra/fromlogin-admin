@@ -11,13 +11,13 @@ class KategoriBeritaController extends Controller
     public function index()
     {
         $items = KategoriBerita::orderBy('kategori_id', 'desc')->paginate(15);
-        return view('admin.kategori-berita.index', compact('items'));
+        return view('pages.kategori-berita.index', compact('items'));
     }
 
     // Menampilkan form untuk membuat kategori baru
     public function create()
     {
-        return view('admin.kategori-berita.create');
+        return view('pages.kategori-berita.create');
     }
 
     // Menyimpan kategori baru ke database
@@ -42,13 +42,13 @@ class KategoriBeritaController extends Controller
     // Menampilkan satu kategori
     public function show(KategoriBerita $kategori_beritum)
     {
-        //return view('admin.kategori-berita.show', ['item' => $kategori_beritum]);
+        //return view('pages.kategori-berita.show', ['item' => $kategori_beritum]);
     }
 
     // Menampilkan form edit
     public function edit(KategoriBerita $kategori_beritum)
     {
-        return view('admin.kategori-berita.edit', ['item' => $kategori_beritum]);
+        return view('pages.kategori-berita.edit', ['item' => $kategori_beritum]);
     }
 
     // Memperbarui kategori

@@ -9,7 +9,9 @@
             <div class="card mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="mb-0">Daftar Kategori Berita</h6>
-                    <a href="{{ route('kategori-berita.create') }}" class="btn btn-sm btn-primary">Tambah Kategori</a>
+                    <a href="{{ route('kategori-berita.create') }}" class="btn btn-sm btn-primary">
+                        <i class="material-icons opacity-10 me-1">category</i> Tambah Kategori
+                    </a>
                 </div>
                 <div class="card-body">
                     @if(session('success'))
@@ -36,11 +38,15 @@
                                         <td>{{ \Illuminate\Support\Str::limit($item->deskripsi, 80) }}</td>
                                         <td class="text-center">
                                             {{-- Tombol Lihat dihapus --}}
-                                            <a href="{{ route('kategori-berita.edit', ['kategori_beritum' => $item->kategori_id]) }}" class="btn btn-sm btn-warning">Edit</a>
+                                            <a href="{{ route('kategori-berita.edit', ['kategori_beritum' => $item->kategori_id]) }}" class="btn btn-sm btn-warning">
+                                                <i class="material-icons opacity-10">edit</i> Edit
+                                            </a>
                                             <form action="{{ route('kategori-berita.destroy', ['kategori_beritum' => $item->kategori_id]) }}" method="POST" style="display:inline" onsubmit="return confirm('Hapus kategori ini?')">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-sm btn-danger">Hapus</button>
+                                                <button class="btn btn-sm btn-danger">
+                                                    <i class="material-icons opacity-10">delete</i> Hapus
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>

@@ -12,13 +12,13 @@ class UserController extends Controller
     public function index()
     {
         $items = User::orderBy('id', 'desc')->paginate(15);
-        return view('admin.user.index', compact('items'));
+        return view('pages.user.index', compact('items'));
     }
 
     // Tampilkan form pembuatan user
     public function create()
     {
-        return view('admin.user.create');
+        return view('pages.user.create');
     }
 
     // Simpan user baru
@@ -40,13 +40,13 @@ class UserController extends Controller
     // Tampilkan detail user
     public function show(User $user)
     {
-        return view('admin.user.show', ['item' => $user]);
+        return view('pages.user.show', ['item' => $user]);
     }
 
     // Tampilkan form edit
     public function edit(User $user)
     {
-        return view('admin.user.edit', ['item' => $user]);
+        return view('pages.user.edit', ['item' => $user]);
     }
 
     // Perbarui data user

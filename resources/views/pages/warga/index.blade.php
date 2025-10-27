@@ -8,7 +8,9 @@
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h4 class="card-title">Daftar Warga</h4>
-          <a href="{{ route('warga.create') }}" class="btn btn-primary btn-action">Tambah Warga</a>
+          <a href="{{ route('warga.create') }}" class="btn btn-primary btn-action">
+            <i class="material-icons opacity-10 me-1">person_add</i> Tambah Warga
+          </a>
         </div>
         <div class="card-body">
           @if(session('success'))
@@ -34,11 +36,15 @@
                   <td>{{ $warga->telp }}</td>
                   <td>
                     {{-- Tombol Lihat dihapus --}}
-                    <a href="{{ route('warga.edit', $warga) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ route('warga.edit', $warga) }}" class="btn btn-sm btn-warning">
+                      <i class="material-icons opacity-10">edit</i> Edit
+                    </a>
                     <form action="{{ route('warga.destroy', $warga) }}" method="POST" style="display:inline-block" onsubmit="return confirm('Hapus data?')">
                       @csrf
                       @method('DELETE')
-                      <button class="btn btn-sm btn-danger">Hapus</button>
+                      <button class="btn btn-sm btn-danger">
+                        <i class="material-icons opacity-10">delete</i> Hapus
+                      </button>
                     </form>
                   </td>
                 </tr>

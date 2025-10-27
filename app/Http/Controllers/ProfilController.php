@@ -12,12 +12,12 @@ class ProfilController extends Controller
     public function index()
     {
         $profils = Profil::orderBy('created_at', 'desc')->paginate(10);
-        return view('admin.profil.index', compact('profils'));
+        return view('pages.profil.index', compact('profils'));
     }
 
     public function create()
     {
-        return view('admin.profil.create');
+        return view('pages.profil.create');
     }
 
     public function store(Request $request)
@@ -66,12 +66,12 @@ class ProfilController extends Controller
 
     public function show(Profil $profil)
     {
-        return view('admin.profil.show', compact('profil'));
+        return view('pages.profil.show', compact('profil'));
     }
 
     public function edit(Profil $profil)
     {
-        return view('admin.profil.edit', compact('profil'));
+        return view('pages.profil.edit', compact('profil'));
     }
 
     public function update(Request $request, Profil $profil)

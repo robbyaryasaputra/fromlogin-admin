@@ -9,14 +9,14 @@ use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
-    return view('welcome');
+
 });
 
 // Route untuk menampilkan halaman login (method GET)
-Route::get('/auth', [AuthController::class, 'index'])->name('login.form');
+Route::get('/', [AuthController::class, 'index'])->name('login.form');
 
 // Route untuk memproses form login (method POST)
-Route::post('/auth/login', [AuthController::class, 'login'])->name('login.process');
+Route::post('/admin/login', [AuthController::class, 'login'])->name('login.process');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
